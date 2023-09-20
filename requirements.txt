@@ -6,3 +6,7 @@ tabulate
 pandas 
 numpy
 faker
+flask
+openai
+python-dotenv
+pandas

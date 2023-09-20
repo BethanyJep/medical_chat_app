@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="title col-md-6 offset-md-3">
+                    <h1>My Chat</h1>
+                </div>
+                            <!-- create a dropdown menu -->
+            <div class="dropdown chat-message">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Select a source
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" data-value="AI for Beginners">AI for Beginners</a></li>
+                    <li><a href="#" data-value="ML for Beginners">ML for Beginners</a></li>
+                    <li><a href="#" data-value="Data Science for Beginners">Data Science for Beginners</a></li>
+                </ul>
+            </div>
+
+            <!-- add a hidden input field to store the selected value -->
+            <input type="hidden" id="source-input">
+
+            <script>
+                // listen for the click event on the dropdown menu
+                $('.dropdown-menu a').click(function() {
+                    // get the value of the selected option
+                    var value = $(this).data('value');
+                    // update the input field with the selected value
+                    $('#source-input').val(value);
+                    // update the dropdown button text with the selected value
+                    $('.dropdown-toggle').text(value);
+                });
+            </script>
+                <div class="chat-message">
+                    <div class="message-text bot">
+                        Hello! How can I help you today?
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="message-text user">
+                        {{ message }}
+                    </div>
+                </div>
+
+                <div class="chat-message">
+                    <div class="message-text bot">
+                        {{ response }}
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <form action="" method="POST">
+                        <input type="text" name="text" class="form-control" placeholder="Type your message...
+                        " autocomplete="off" >
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

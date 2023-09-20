@@ -1,0 +1,35 @@
+/* styles.css */
+
+.chat-message {
+    clear: both;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.message-text {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-text.bot {
+    background-color: #f2f2f2;
+    color: #000;
+    float: left;
+}
+
+.message-text.user {
+    background-color: #007bff;
+    color: #fff;
+    float: right;
+}
+
+.chat-input {
+    margin-top: 20px;
+}
+
+.container {
+    margin: 10px auto;
+}
+.chat-input button{
+    margin: 10px auto;
+}
